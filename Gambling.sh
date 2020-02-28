@@ -6,15 +6,25 @@ echo "*********************Gambling*************************"
 # Constant variable
 STAKE=100
 BET=1
+IS_WIN=1
 
-result=$((RANDOM%2))
-#Check win or loss
+function playGame()
+{
+	result=$((RANDOM%2))
+	#Check win or loss
 
-if [[ $result -eq 1 ]]
-then 
-	stake=$(( $stake + 1 ))
-	echo Win $stake
-else
-	stake=$(( $stake -1 ))
-	echo Loose $stake
-fi
+	if [[ $result -eq IS_WIN ]]
+	then 
+		STAKE=$(( $STAKE + $BET ))
+	else
+		STAKE=$(( $STAKE - $BET ))
+	fi
+}
+playGame
+# Win or lost 50 %
+while [[ $STAKE -lt 150 && $STAKE -gt 50 ]]
+do 
+	echo "$STAKE"
+	playGame
+done
+
