@@ -30,7 +30,8 @@ do
 done
 
 # print win or loose after 20 days playing
-for (( index=1; index<=20; index++ ))
+read -p "how many days you play ? 20  then press :20 And 30 then press :30 " choice 
+for (( index=1; index<=$choice; index++ ))
 do 
 	bet=$( playGame )
 	if [ $bet -eq $IS_WIN ]
